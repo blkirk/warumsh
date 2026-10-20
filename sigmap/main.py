@@ -230,7 +230,7 @@ def main():
         help="Output CSV file path"
     )
     parser.add_argument(
-        "--log-failures", action="store_true", default=True,
+        "--log-failures", action="store_true", default=False,
         help="Log failed pings as rows with empty RSSI"
     )
     parser.add_argument(
