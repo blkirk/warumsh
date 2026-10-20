@@ -1,0 +1,17 @@
+[Unit]
+Description=GPS-Tagged Signal Strength Logger (sigmap)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/warumsh
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=%h/warumsh/venv/bin/python -m sigmap --csv %h/sigmap_log.csv
+Restart=on-failure
+RestartSec=5
+
+# Serial port permissions
+SupplementaryGroups=dialout
+
+[Install]
+WantedBy=multi-user.target
